@@ -31,13 +31,13 @@ groups <username>
 1. Générer une paire de clés SSH :
 
 ```bash
-ssh-keygen -t rsa -C "mon@email.com"
+ssh-keygen -t ed25519 -C "mon@email.com"
 ```
 
 2. Copier la clé publique :
 
 ```bash
-type C:\Users\<username>\.ssh\id_rsa.pub
+type C:\Users\<username>\.ssh\id_ed25519.pub
 ```
 
 ### Sur le serveur
