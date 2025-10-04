@@ -6,21 +6,15 @@ Configuration et documentation centralisée pour le Home Server (Firebat) — ge
 
 - Debian 13.0.1
 - Connexion Fibré
-- | Firebat© AK2 \* |                                                                Composants                                                                 | Info |
-  | --------------- | :---------------------------------------------------------------------------------------------------------------------------------------: | ---- |
-  | CPU             | [Intel N100](https://www.intel.fr/content/www/fr/fr/products/sku/231803/intel-processor-n100-6m-cache-up-to-3-40-ghz/specifications.html) |
-  | RAM             |                                                                 16Go DDR4                                                                 |
-  | Stockage        |                                                        512Go SSD +1Slot 2.5" libre                                                        |
-  | LAN             |                                                          Wi-Fi5 ou RJ45 (1Gb/s)                                                           |
 
 ## Environnement matériel
 
-| Composant | Détail                                |
-| --------- | ------------------------------------- |
-| CPU       | Intel N100 — https://www.intel.fr/... |
-| RAM       | 16 Go DDR4                            |
-| Stockage  | 512 Go SSD + 1 slot 2.5" libre        |
-| Réseau    | Wi‑Fi5 / RJ45 (1 Gbps)                |
+| Composant | Détail                                                                                                                                    |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| CPU       | [Intel N100](https://www.intel.fr/content/www/fr/fr/products/sku/231803/intel-processor-n100-6m-cache-up-to-3-40-ghz/specifications.html) |
+| RAM       | 16 Go DDR4                                                                                                                                |
+| Stockage  | 512 Go SSD + 1 slot 2.5" libre                                                                                                            |
+| Réseau    | Wi‑Fi5 / RJ45 (1 Gbps)                                                                                                                    |
 
 ## Raccourci rapide
 
@@ -69,8 +63,9 @@ _Grand point cliquable pour voir comment installer/configurer._
 
 ## Licence & contact
 
-- Projet personnel — pas de licence explicite (ajouter LICENSE si nécessaire)
-- Contact : mention honorable — le_renard_12 (Discord)
+- **Projet personnel** — Pas de licence explicite
+- **Contact :** contact@devallek.fr
+- **mention honorable :** le_renard_12 (Discord)
 
 ## Ressources
 
