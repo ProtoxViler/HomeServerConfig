@@ -1,5 +1,7 @@
 # Configuration des services intégrés à l'OS
 
+##### Pour tout PC linux compris, pas forcément le Home Server
+
 ##### (Pas de docker ou autres)
 
 ## Table des matières
@@ -73,9 +75,9 @@ Font : [Nerd Font](https://www.nerdfonts.com/) ([Cascadia Code](https://github.c
 
 ### Alias utiles
 
-#### Équivalent _ipconfig /all_ court
-
 A ajouter dans le .bashrc ou .zshrc
+
+#### Équivalent _ipconfig /all_ court
 
 ```bash
 alias ipa='ip -br -c -4 a'

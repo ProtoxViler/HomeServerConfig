@@ -1,32 +1,21 @@
-# Configuration Serveur OpenSSh
+# Configuration Serveur OpenSSh et clé SSH
 
-Pour tout PC linux compris, pas forcément le Home Server
-
-## 1. Configuration des droits administrateur
-
-### Ajouter l'utilisateur au groupe sudo
-
-1. Ouvrir un terminal
-2. Se connecter en tant que root :
+## 1. Vérification de l'installation SSH
 
 ```bash
-su -l
+systemctl status sshd
 ```
 
-3. Entrer le mot de passe root
-4. Ajouter l'utilisateur au groupe sudo :
+Si le service n'est pas actif, l'installer et l'activer :
 
 ```bash
-usermod -aG sudo <username>
+sudo apt install -y openssh-server
+sudo systemctl enable sshd
+sudo systemctl start sshd
+sudo systemctl status sshd
 ```
 
-5. Vérifier l'appartenance aux groupes :
-
-```bash
-groups <username>
-```
-
-## 2. Configuration SSH
+## 2. Configuration de l'authentification par clé SSH
 
 ### Sur le PC client
 
@@ -73,7 +62,7 @@ nano ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-### Test de connexion
+## 3. Test de connexion
 
 Depuis le PC client :
 
@@ -81,7 +70,7 @@ Depuis le PC client :
 ssh <username>@<ip-serveur>
 ```
 
-## 3. Sécurité SSH (Optionnel)
+## 4. Sécurité SSH (Optionnel)
 
 Éditer le fichier de configuration SSH :
 

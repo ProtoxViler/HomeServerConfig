@@ -7,6 +7,8 @@
 
 ## 1. Installation de Cloudflared
 
+### Via le dépôt officiel (Apt)
+
 ```bash
 # Add cloudflare gpg key
 sudo mkdir -p --mode=0755 /usr/share/keyrings
@@ -19,6 +21,12 @@ echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudf
 sudo apt-get update && sudo apt-get install cloudflared
 ```
 
+### Via DPKG
+
+```bash
+curl --location --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && sudo dpkg -i cloudflared.deb && rm cloudflared.deb
+```
+
 ## 2. Configuration de Cloudflared
 
 1. Aller dans le tableau de bord Cloudflare
@@ -28,6 +36,23 @@ sudo apt-get update && sudo apt-get install cloudflared
 5. Sélectionner "Debian" puis copier la commande fournie (sudo cloudflared service install #####)
 6. Coller et exécuter la commande dans le terminal du serveur
 
+## 3. Si mise à jour
+
+### Via le dépôt officiel (Apt)
+
+```bash
+sudo apt-get update && sudo apt-get install --only-upgrade cloudflared
+sudo systemctl restart cloudflared.service
+```
+
+### Via DPKG
+
+```bash
+curl --location --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && sudo dpkg -i cloudflared.deb && rm cloudflared.deb
+```
+
 ## Utilisation
 
 à venir...
+
+[Overview du zero trust sur developer.cloudflare.com](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
