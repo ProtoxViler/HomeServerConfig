@@ -1,6 +1,90 @@
-# Configuration des services intégrés à l'OS (Pas de docker ou autres)
+# Configuration des services intégrés à l'OS
 
-- **Serveur SSH** - _Contrôle à distance par terminal_
-- **Serveur XRDP** - _Contrôle à distance via RDP pour Linux_
-- **Serveur Samba** - _Fichiers_
-- **Cloudflare/Cloudflared** - _Zero trust, VPN, DNS, ..._
+##### (Pas de docker ou autres)
+
+## Table des matières
+
+- [**Serveur SSH**](https://github.com/ProtoxViler/HomeServerConfig/blob/main/OsConfig/SrvSSH.md) - _Contrôle à distance par terminal_
+- [**Serveur XRDP**](https://github.com/ProtoxViler/HomeServerConfig/blob/main/OsConfig/SrvXRP.md) - _Contrôle à distance via RDP pour Linux_
+- [**Serveur Samba**](https://github.com/ProtoxViler/HomeServerConfig/blob/main/OsConfig/SrvSamba.md) - _Fichiers_
+- [**Cloudflare/Cloudflared**](https://github.com/ProtoxViler/HomeServerConfig/blob/main/OsConfig/Cloudflared.md) - _Zero trust, VPN, DNS, ..._
+
+## ⚠️ Avant de faire tout manipulation
+
+### Ajouter l'utilisateur au groupe sudo
+
+1. Ouvrir un terminal
+2. Se connecter en tant que root :
+
+```bash
+su -l
+```
+
+3. Entrer le mot de passe root
+4. Ajouter l'utilisateur au groupe sudo :
+
+```bash
+usermod -aG sudo <username>
+```
+
+5. Vérifier l'appartenance aux groupes :
+
+```bash
+groups <username>
+```
+
+Nécessite surement un reboot sur VM, ou une reconnexion du compte.
+
+## Autre config bonus
+
+### Curl
+
+```bash
+sudo apt install curl -y
+```
+
+### Tree
+
+```bash
+sudo apt install tree -y
+```
+
+### Htop
+
+```bash
+sudo apt install htop -y
+```
+
+### Starship
+
+```bash
+curl -sS https://starship.rs/install.sh | sh
+```
+
+Ajouter dans le .bashrc ou .zshrc
+
+```bash
+eval "$(starship init bash)"
+```
+
+Preset : [https://starship.rs/presets/](https://starship.rs/presets/)
+
+Font : [Nerd Font](https://www.nerdfonts.com/) ([Cascadia Code](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip) recommandé)
+
+### Alias utiles
+
+#### Équivalent _ipconfig /all_ court
+
+A ajouter dans le .bashrc ou .zshrc
+
+```bash
+alias ipa='ip -br -c -4 a'
+```
+
+## Fichier automatique shell
+
+Un script shell est disponible pour automatiser la configuration.
+
+##### SSH n'est pas disponible dans ce script, car trop sensible et spécifique
+
+à réaliser...

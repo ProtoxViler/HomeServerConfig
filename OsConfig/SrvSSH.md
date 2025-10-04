@@ -1,4 +1,4 @@
-# Paramètres pour le premier démarrage
+# Configuration Serveur OpenSSh
 
 Pour tout PC linux compris, pas forcément le Home Server
 
@@ -28,13 +28,17 @@ groups <username>
 
 ## 2. Configuration SSH
 
-### Sur le PC client (Windows)
+### Sur le PC client
+
+#### Windows
 
 1. Générer une paire de clés SSH :
 
 ```bash
 ssh-keygen -t ed25519 -C "mon@email.com"
 ```
+
+_Optionnel mais recommandé : ajouter une passphrase_
 
 2. Copier la clé publique :
 

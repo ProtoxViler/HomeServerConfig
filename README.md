@@ -5,7 +5,6 @@ Configuration et documentation centralisée pour le Home Server (Firebat) — ge
 ## Environnement système utilisé
 
 - Debian 13.0.1
-- Connexion Fibré
 
 ## Environnement matériel
 
@@ -28,11 +27,16 @@ sudo apt update && sudo apt upgrade -y
 
 _Grand point cliquable pour voir comment installer/configurer._
 
-- [**OsConfig**]()
+- [**OsConfig**](https://github.com/ProtoxViler/HomeServerConfig/tree/main/OsConfig)
   - **Serveur SSH** - _Contrôle à distance par terminal_
   - **Serveur XRDP** - _Contrôle à distance via RDP pour Linux_
   - **Serveur Samba** - _Fichiers_
   - **Cloudflare/Cloudflared** - _Zero trust, VPN, DNS, ..._
+  - **_Optionnel_**
+    - **Curl** - _Outil ligne de commande pour les requêtes réseau_
+    - **Tree** - _Affichage arborescence dans le terminal_
+    - **Htop** - _Gestionnaire de tâches avancé_
+    - **Starship** - _Personalisation terminal_
 - [**Docker**]()
   - **Portainer** - _Affiche web pour docker_
   - [**Portfolio**]()
@@ -46,10 +50,6 @@ _Grand point cliquable pour voir comment installer/configurer._
   - [**JellyFin**]() - _Médiathèque_
   - [**N8N**]() - _Programation par flux avec intégration IA_
   - [**Uptime Kuma**]() - _Monitoring de l'état de serveur.s_
-
-* **_Optionnel_**
-
-  - [**Starship**]() - _Personalisation terminal_
 
 ## Structure du dépôt
 

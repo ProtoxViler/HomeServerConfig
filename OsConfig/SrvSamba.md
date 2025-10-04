@@ -1,11 +1,5 @@
 # Configuration Serveur Samba
 
-## Prérequis
-
-- Système Debian/Ubuntu
-- Accès root ou sudo
-- Connexion réseau fonctionnelle
-
 ## 1. Installation de Samba
 
 ```bash
