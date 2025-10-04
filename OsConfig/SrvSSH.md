@@ -1,134 +1,100 @@
-# Configuration Serveur Samba
+# Paramètres pour le premier démarrage
 
-## Prérequis
+Pour tout PC linux compris, pas forcément le Home Server
 
-- Système Debian/Ubuntu
-- Accès root ou sudo
-- Connexion réseau fonctionnelle
+## 1. Configuration des droits administrateur
 
-## 1. Installation de Samba
+### Ajouter l'utilisateur au groupe sudo
 
-```bash
-# Installation du paquet
-sudo apt install -y samba
-
-# Vérification du service
-sudo systemctl status smbd
-
-# Activation au démarrage
-sudo systemctl enable smbd
-```
-
-## 2. Configuration du partage
-
-### Préparation du dossier
+1. Ouvrir un terminal
+2. Se connecter en tant que root :
 
 ```bash
-# Création du répertoire
-sudo mkdir -p /srv/partage
-
-# Attribution des permissions
-sudo chmod 770 /srv/partage
-sudo chown root:partage /srv/partage
+su -l
 ```
 
-### Configuration des utilisateurs
+3. Entrer le mot de passe root
+4. Ajouter l'utilisateur au groupe sudo :
 
 ```bash
-# Création du groupe
-sudo groupadd partage
-
-# Ajout d'un utilisateur au groupe
-sudo usermod -aG partage <nom_utilisateur>
-
-# Création du compte Samba
-sudo smbpasswd -a <nom_utilisateur>
+usermod -aG sudo <username>
 ```
 
-### Configuration de Samba
+5. Vérifier l'appartenance aux groupes :
 
 ```bash
-# Sauvegarde du fichier original
-sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
-
-# Édition du fichier de configuration
-sudo nano /etc/samba/smb.conf
+groups <username>
 ```
 
-Ajouter à la fin du fichier :
+## 2. Configuration SSH
 
-```ini
-[partage]
-   comment = Partage de données
-   path = /srv/partage
-   guest ok = no
-   read only = no
-   browseable = yes
-   valid users = @partage
-```
+### Sur le PC client (Windows)
 
-### Redémarrage du service
+1. Générer une paire de clés SSH :
 
 ```bash
-sudo systemctl restart smbd
+ssh-keygen -t ed25519 -C "mon@email.com"
 ```
 
-## 3. Test et vérification
-
-### Vérification de la configuration
+2. Copier la clé publique :
 
 ```bash
-# Test de la syntaxe
-testparm
-
-# Vérification des partages disponibles
-smbclient -L localhost -U <nom_utilisateur>
+type C:\Users\<username>\.ssh\id_ed25519.pub
 ```
 
-### Connexion depuis Windows
+### Sur le serveur
 
-1. Ouvrir l'Explorateur de fichiers
-2. Taper `\\IP-SERVEUR\partage` dans la barre d'adresse
-3. Entrer les identifiants créés avec smbpasswd
-
-### Connexion depuis Linux
+1. Créer le répertoire .ssh :
 
 ```bash
-smbclient //IP-SERVEUR/partage -U <nom_utilisateur>
+mkdir -p ~/.ssh
 ```
 
-### Connexion depuis MacOs
-
-##############
-
-## 4. Dépannage courant
-
-### Problèmes de permissions
+2. Définir les permissions :
 
 ```bash
-# Vérification des permissions
-ls -l /srv/partage
-
-# Réinitialisation des permissions
-sudo chmod 770 /srv/partage
-sudo chown root:partage /srv/partage
+chmod 700 ~/.ssh
 ```
 
-### Logs et diagnostic
+3. Créer/modifier le fichier authorized_keys :
 
 ```bash
-# Consultation des logs
-sudo tail -f /var/log/samba/log.smbd
-
-# Status du service
-sudo systemctl status smbd
+nano ~/.ssh/authorized_keys
 ```
 
-## 5. Sécurité
+4. Coller la clé publique du PC client
+5. Définir les bonnes permissions :
 
-- Utilisez des mots de passe forts pour les comptes Samba
-- Limitez l'accès aux utilisateurs nécessaires
-- Surveillez régulièrement les logs
-- Maintenez Samba à jour
+```bash
+chmod 600 ~/.ssh/authorized_keys
+```
 
-Source : [IT-Connect](https://www.it-connect.fr/serveur-de-fichiers-debian-installer-et-configurer-samba-4/)
+### Test de connexion
+
+Depuis le PC client :
+
+```bash
+ssh <username>@<ip-serveur>
+```
+
+## 3. Sécurité SSH (Optionnel)
+
+Éditer le fichier de configuration SSH :
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Paramètres recommandés :
+
+```
+PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+```
+
+Redémarrer le service SSH :
+
+```bash
+sudo systemctl restart sshd
+```
