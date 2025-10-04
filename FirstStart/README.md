@@ -1,5 +1,7 @@
 # Paramètres pour le premier démarrage
 
+Pour tout PC linux compris, pas forcément le Home Server
+
 ## 1. Configuration des droits administrateur
 
 ### Ajouter l'utilisateur au groupe sudo

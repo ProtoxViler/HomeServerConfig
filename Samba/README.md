@@ -10,7 +10,6 @@
 
 ```bash
 # Installation du paquet
-sudo apt update
 sudo apt install -y samba
 
 # Vérification du service
@@ -97,6 +96,10 @@ smbclient -L localhost -U <nom_utilisateur>
 ```bash
 smbclient //IP-SERVEUR/partage -U <nom_utilisateur>
 ```
+
+### Connexion depuis MacOs
+
+##############
 
 ## 4. Dépannage courant
 
