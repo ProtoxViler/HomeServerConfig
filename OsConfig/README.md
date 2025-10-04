@@ -69,7 +69,13 @@ Ajouter dans le .bashrc ou .zshrc
 eval "$(starship init bash)"
 ```
 
-Preset : [https://starship.rs/presets/](https://starship.rs/presets/)
+Ajouter le preset dans le chemin ci-dessous (suivant l'OS) :
+
+- Linux/MacOs : `~/.config/starship.toml`
+- Windows : `%USERPROFILE%\.config\starship.toml`
+
+Preset perso : [lien](https://github.com/ProtoxViler/HomeServerConfig/blob/main/OsConfig/starship.toml)
+List de preset : [https://starship.rs/presets/](https://starship.rs/presets/)
 
 Font : [Nerd Font](https://www.nerdfonts.com/) ([Cascadia Code](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip) recommandé)
 

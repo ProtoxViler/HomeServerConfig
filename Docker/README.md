@@ -6,8 +6,28 @@ Faire la configuration de base de l'OS : [OsConfig](../OsConfig/README.md)
 
 ## 1. Installation de Docker, Docker Compose
 
+### Docker
+
 ```bash
-sudo apt-get install docker.io docker-compose-plugin
+sudo apt-get install docker.io
+```
+
+### Docker Compose
+
+Installe le plugin, ne pas utiliser la version standalone (`docker-compose` obsolète).
+
+```bash
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v2.40.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+```
+
+Vérifier l'installation :
+
+```bash
+docker --version
+docker compose version
 ```
 
 ## 2. Installation de Portainer (optionnel)
@@ -25,6 +45,11 @@ docker run -d -p 9000:9000 -p 9443:9443 --name portainer --restart=always -v /va
 4. Aller dans "Environnements" > "Ajouter un environnement" > "Docker"
 5. Sélectionner "Local" puis cliquer sur "Ajouter un environnement"
 
+## 3. Utilisation de Portainer (Ajout de stack)
+
+1. Aller dans "Stacks" > "Ajouter une stack"
+2. Donner un nom à la stack (ex: N8N)
+
 ## Table des matières
 
 - [**Portfolio**](../Docker/Portfolio/README.md) - _Site web personnel_
@@ -32,5 +57,3 @@ docker run -d -p 9000:9000 -p 9443:9443 --name portainer --restart=always -v /va
 - [**Domotique**](../Docker/Domotique/README.md) - _Home Assistant, MQTT, Node-Red_
 - [**JellyFin**](../Docker/Jellyfin/README.md) - _Médiathèque_
 - [**Uptime Kuma**](../Docker/UptimeKuma/README.md) - _Monitoring de l'état de serveur.s_
-- [**Portainer**](../Docker/Portainer/README.md) - _Affiche web pour docker_
-- [**_Ajouter un service_**](../Docker/ADD_SERVICE.md) - _Comment ajouter un service docker_
