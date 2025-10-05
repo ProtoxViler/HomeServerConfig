@@ -37,6 +37,12 @@ groups <username>
 
 Nécessite surement un reboot sur VM, ou une reconnexion du compte.
 
+### Vérifier les mises à jour
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
 ## Autre config bonus
 
 ### Curl
