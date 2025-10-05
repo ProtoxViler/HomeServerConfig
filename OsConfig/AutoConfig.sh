@@ -15,16 +15,19 @@ read -p "Votre password root: " root_password
 clear
 
 
-
-# Fonction pour les choix du menu
 SudoAndUpdate() {
-    echo "Passage de l'user " $USER " en sudoers"
-    echo $root_password | su -l && sudo -S usermod -aG sudo $USER
-    echo # Jump le mot de passe
-    echo $user_password | sudo -S apt update && sudo -S apt upgrade -y
-    echo 
+    target_user="${SUDO_USER:-$USER}"
+    echo "Ajout de l'utilisateur $target_user au groupe sudo (exécution en root requise)"
+    if [ "$(id -u)" -ne 0 ]; then
+        echo "Lancez le script avec sudo ou en root pour effectuer cette opération."
+        return 1
+    fi
+
+    usermod -aG sudo "$target_user"
+    apt update && apt upgrade -y
+
     echo CHECKUP :
-    groups $USER | grep -q '\bsudo\b' && echo "$USER est maintenant dans le groupe sudo." || echo "Échec de l'ajout de $USER au groupe sudo."
+    groups "$target_user" | grep -q '\bsudo\b' && echo "$target_user est maintenant dans le groupe sudo." || echo "Échec de l'ajout de $target_user au groupe sudo."
     echo Les paquets ont été mis à jour.
     echo
 }
@@ -50,6 +53,68 @@ StarshipConfig() {
     echo
 }
 
+
+CheckInstallations() {
+    echo "Vérification des installations"
+    echo
+    echo "Vérification de sudo:"
+    if sudo -v; then
+        echo "sudo est installé et fonctionne correctement."
+    else
+        echo "sudo n'est pas installé ou ne fonctionne pas correctement."
+    fi
+
+    echo
+    echo "Vérification de Tree:"
+    if command -v tree &> /dev/null; then
+        echo "Tree est installé."
+    else
+        echo "Tree n'est pas installé."
+    fi
+
+    echo
+    echo "Vérification de Htop:"
+    if command -v htop &> /dev/null; then
+        echo "Htop est installé."
+    else
+        echo "Htop n'est pas installé."
+    fi
+
+    echo
+    echo "Vérification de Wget:"
+    if command -v wget &> /dev/null; then
+        echo "Wget est installé."
+    else
+        echo "Wget n'est pas installé."
+    fi
+
+    echo
+    echo "Vérification de Curl:"
+    if command -v curl &> /dev/null; then
+        echo "Curl est installé."
+    else
+        echo "Curl n'est pas installé."
+    fi
+
+    echo
+    echo "Vérification de Git:"
+    if command -v git &> /dev/null; then
+        echo "Git est installé."
+    else
+        echo "Git n'est pas installé."
+    fi
+
+    echo
+    echo "Vérification de Starship:"
+    if command -v starship &> /dev/null; then
+        echo "Starship est installé."
+    else
+        echo "Starship n'est pas installé."
+    fi
+
+    echo
+    echo "Vérification terminée."
+}
 
 
 # Boucle pour choisir plusieurs options si besoin 

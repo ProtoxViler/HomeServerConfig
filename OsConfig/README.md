@@ -99,6 +99,12 @@ alias ipa='ip -br -c -4 a'
 
 Un script shell est disponible pour automatiser la configuration.
 
-##### SSH n'est pas disponible dans ce script, car trop sensible et spécifique
+Voici les options disponibles (pour le moment) :
+- **Sudo & update**
+- **Essentials** (curl, tree, htop, git)
+- **Starship**
 
-à réaliser...
+
+```bash
+curl -sSL "https://raw.githubusercontent.com/ProtoxViler/HomeServerConfig/main/OsConfig/AutoConfig.sh" -o AutoConfig.sh && chmod +x AutoConfig.sh && ./AutoConfig.sh && rm ./AutoConfig.sh
+```
