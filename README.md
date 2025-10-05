@@ -46,7 +46,6 @@ _Grand point cliquable pour voir comment installer/configurer._
   - **Domotique**
     - **Home Assistant**
     - **Eclipse-Mosquitto** - _Broker MQTT_
-    - **Node-Red** - _Programmation par flux orienté domotique_
   - **JellyFin** - _Médiathèque_
   - **N8N** - _Programation par flux avec intégration IA_
   - **Uptime Kuma** - _Monitoring de l'état de serveur.s_

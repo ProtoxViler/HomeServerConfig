@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    name: N8N
+    restart: always
+    ports:
+      - "5678:5678"
+    environment: GENERIC_TIMEZONE="Europe/Paris" TZ="Europe/Paris" N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true N8N_RUNNERS_ENABLED=true
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:
+
+

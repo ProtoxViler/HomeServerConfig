@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+  homeassistant:
+    image: homeassistant/home-assistant:stable
+    container_name: HomeAssistant
+    environment:
+      - TZ=Europe/Paris
+    ports:
+      - 8123:8123
+    volumes:
+      - HomeAssistantConfig:/config
+    restart: always
+
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: MQTT
+    restart: always
+    volumes:
+      - MQTTconfig:/mosquitto/config
+      - MQTTdata:/mosquitto/data
+      - MQTTlog:/mosquitto/log
+    ports:
+      - 1883:1883
+      - 9001:9001
+volumes:
+  HomeAssistantConfig:
+  MQTTdata:
+  MQTTlog:
+  MQTTconfig:

@@ -11,8 +11,6 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - db_data:/var/lib/mysql
-    networks:
-      - wordpress_net
 
   wordpress:
     image: wordpress:latest
@@ -28,8 +26,6 @@ services:
       WORDPRESS_DB_NAME: wordpress
     volumes:
       - wordpress_data:/var/www/html
-    networks:
-      - wordpress_net
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -41,13 +37,7 @@ services:
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-    networks:
-      - wordpress_net
 
 volumes:
   db_data:
   wordpress_data:
-
-
-networks:
-  wordpress_net:
