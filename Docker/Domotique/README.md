@@ -3,13 +3,14 @@
 ## Container et images utilisés
 
 - Home Assistant
-- Eclipse-Mosquitto
-
-## Configuration du broker MQTT
+- Eclipse-Mosquitto (broker MQTT)
 
 ## Port mapping (Sortant)
+
 - **Home Assistant** : 8123
 - **MQTT** : 1883 (TCP)
+
+## Configuration du broker MQTT
 
 ### Création d’un utilisateur : Création d’un utilisateur :
 
