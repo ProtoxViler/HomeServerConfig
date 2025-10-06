@@ -1,22 +1,21 @@
-version: '3.9'
 services:
   homeassistant:
     image: homeassistant/home-assistant:stable
     container_name: HomeAssistant
     environment:
-      - TZ=Europe/Paris
+      TZ: "Europe/Paris"
     ports:
       - 8123:8123
     volumes:
       - HomeAssistantConfig:/config
-    restart: always
+    restart: unless-stopped
     networks:
       - domotique_network
 
   mosquitto:
     image: eclipse-mosquitto
     container_name: MQTT
-    restart: always
+    restart: unless-stopped
     volumes:
       - MQTTconfig:/mosquitto/config
       - MQTTdata:/mosquitto/data
