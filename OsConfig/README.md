@@ -37,13 +37,13 @@ groups <username>
 
 Nécessite surement un reboot sur VM, ou une reconnexion du compte.
 
-Voir [plus bas](#Fichier_automatique_shell) pour que tout soit automatisé.
-
 ### Vérifier les mises à jour
 
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
+
+Voir [plus bas](#fichier-automatique-shell) pour que tout soit automatisé.
 
 ## Autre config bonus
 
@@ -82,7 +82,8 @@ Ajouter le preset dans le chemin ci-dessous (suivant l'OS) :
 - Linux/MacOs : `~/.config/starship.toml`
 - Windows : `%USERPROFILE%\.config\starship.toml`
 
-Preset perso : [lien](https://github.com/ProtoxViler/HomeServerConfig/blob/main/OsConfig/starship.toml)
+Preset perso : [lien](https://github.com/ProtoxViler/HomeServerConfig/blob/main/OsConfig/starship_perso.toml) (à rename starship.toml)
+Preset serveur: [lien](https://github.com/ProtoxViler/HomeServerConfig/blob/main/OsConfig/starship_server.toml) (à rename starship.toml)
 List de preset : [https://starship.rs/presets/](https://starship.rs/presets/)
 
 Font : [Nerd Font](https://www.nerdfonts.com/) ([Cascadia Code](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip) recommandé)
@@ -97,6 +98,45 @@ A ajouter dans le .bashrc ou .zshrc
 alias ipa='ip -br -c -4 a'
 ```
 
-## Fichier automatique shell
+## Fichier automatique shell (WIP)
 
-à realiser
+### avec Autoconfig (WIP)
+
+Copier le bash ci dessous pour tout installer
+
+```bash
+# Install curl
+sudo apt install curl -y
+
+# Execute script
+curl -sSL "https://raw.githubusercontent.com/ProtoxViler/HomeServerConfig/main/OsConfig/AutoConfig.sh" -o AutoConfig.sh
+chmod +x AutoConfig.sh
+sudo ./AutoConfig.sh
+rm ./AutoConfig.sh
+```
+
+### Sans Autoconfig
+
+Installation des paquets
+
+```bash
+sudo apt update && sudo apt upgrade
+sudo apt install curl tree htop openssh-server xrdp samba -y
+sudo curl -sS https://starship.rs/install.sh | sh
+```
+
+Configuration de starship
+
+#### Config Perso
+
+```bash
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
+curl https://raw.githubusercontent.com/ProtoxViler/HomeServerConfig/refs/heads/main/OsConfig/Starship/starship_perso.toml -o ~/.config/starship.toml
+```
+
+#### Config Server
+
+```bash
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
+curl https://raw.githubusercontent.com/ProtoxViler/HomeServerConfig/refs/heads/main/OsConfig/Starship/starship_server.toml -o ~/.config/starship.toml
+```

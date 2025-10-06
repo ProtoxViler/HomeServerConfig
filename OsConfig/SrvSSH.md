@@ -1,4 +1,4 @@
-# Configuration Serveur OpenSSh et clé SSH
+# Configuration Serveur OpenSSH et clé SSH
 
 ## 1. Vérification de l'installation SSH
 
