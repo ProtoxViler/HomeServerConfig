@@ -1,18 +1,6 @@
 #!/bin/bash
 
-
-# Demande les passwords user et root pour les commandes sudo
-clear
-echo -------------------------------
-echo ATTENTION: Merci d\'entrer votre mot de passe user et root ici pour continuer à faire les installations.
-echo
-echo Ce script n\'enregistrera pas votre mot de passe, il l\'utilisera uniquement pour les commandes sudo.
-echo -------------------------------
-
-read -p "Votre password user: " user_password
-read -p "Votre password root: " root_password
-
-clear
+# execute le script avec sudo directement plutot que de demander le mot de passe.
 
 
 SudoAndUpdate() {
@@ -28,14 +16,12 @@ SudoAndUpdate() {
 
     echo CHECKUP :
     groups "$target_user" | grep -q '\bsudo\b' && echo "$target_user est maintenant dans le groupe sudo." || echo "Échec de l'ajout de $target_user au groupe sudo."
-    echo Les paquets ont été mis à jour.
-    echo
+    echo Les paquets ont été mis à jour.\n
 }
 
 EssentialsConfig() {
     echo "Installation de Tree, Htop, Wget, Curl, git"
-    echo $user_password | sudo -S apt install -y tree htop wget curl git gh
-    echo
+    echo $user_password | sudo -S apt install -y tree htop wget curl git gh\n
     echo CHECKUP :
     echo Les paquets essentiels ont été installés.
 }
@@ -45,12 +31,10 @@ StarshipConfig() {
     echo $user_password | sudo -S apt install -y curl
     curl -sS https://starship.rs/install.sh | sh
     echo 'eval "$(starship init bash)"' >> ~/.bashrc
-    source ~/.bashrc
-    echo
+    source ~/.bashrc\n
     curl -sS https://raw.githubusercontent.com/ProtoxViler/HomeServerConfig/refs/heads/main/OsConfig/Starship/starship.toml | tee ~/.config/starship.toml
     echo CHECKUP :
-    starship --version && echo "Starship a été installé avec succès." || echo "Échec de l'installation de Starship."
-    echo
+    starship --version && echo "Starship a été installé avec succès." || echo "Échec de l'installation de Starship."\n
 }
 
 
@@ -120,10 +104,8 @@ CheckInstallations() {
 # Boucle pour choisir plusieurs options si besoin 
 while true; do
 
-
   echo Configuration automatique de l\'OS
-  echo -------------------------------
-  echo
+  echo -------------------------------\n
   echo "1. Sudo & Update                 #Disponible"
   echo "2. SSH                           #Non Disponible"
   echo "3. XRDP                          #Non Disponible"
@@ -131,13 +113,10 @@ while true; do
   echo "5. Cloudflare                    #Non Disponible"
   echo -- Bonus --
   echo "6. Essentiel (Tree, Htop, Wget, Curl, git)"
-  echo 7. Starship
-  echo
+  echo 7. Starship\n
   echo "9. Tout installer                #Non Disponible"
-  echo "10. Véifier les installations    #Non Disponible"
-  echo
-  echo 0. Quitter
-  echo
+  echo "10. Véifier les installations    #Non Disponible"\n
+  echo 0. Quitter\n
 
   read -p "Choix: " choice
   clear
