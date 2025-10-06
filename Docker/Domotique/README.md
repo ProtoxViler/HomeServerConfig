@@ -5,8 +5,11 @@
 - Home Assistant
 - Eclipse-Mosquitto
 
-
 ## Configuration du broker MQTT
+
+## Port mapping (Sortant)
+- **Home Assistant** : 8123
+- **MQTT** : 1883 (TCP)
 
 ### Création d’un utilisateur : Création d’un utilisateur :
 

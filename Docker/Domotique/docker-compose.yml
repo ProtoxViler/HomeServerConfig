@@ -10,6 +10,8 @@ services:
     volumes:
       - HomeAssistantConfig:/config
     restart: always
+    networks:
+      - domotique_network
 
   mosquitto:
     image: eclipse-mosquitto
@@ -21,9 +23,16 @@ services:
       - MQTTlog:/mosquitto/log
     ports:
       - 1883:1883
-      - 9001:9001
+    networks:
+      - domotique_network
+
 volumes:
   HomeAssistantConfig:
   MQTTdata:
   MQTTlog:
   MQTTconfig:
+
+
+networks:
+  domotique_network:
+    driver: bridge
