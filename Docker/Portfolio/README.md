@@ -6,6 +6,10 @@
 - MySQL
 - phpMyAdmin
 
+## Port mapping (Sortant)
+- **Wordpress** : 80
+- **PHPMyAdmin** : 81
+
 ## Fichier .env
 
 - [Portfolio.env](./portfolio.env)
