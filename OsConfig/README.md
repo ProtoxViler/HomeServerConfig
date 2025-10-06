@@ -37,6 +37,8 @@ groups <username>
 
 Nécessite surement un reboot sur VM, ou une reconnexion du compte.
 
+Voir [plus bas](#Fichier_automatique_shell) pour que tout soit automatisé.
+
 ### Vérifier les mises à jour
 
 ```bash
@@ -97,14 +99,4 @@ alias ipa='ip -br -c -4 a'
 
 ## Fichier automatique shell
 
-Un script shell est disponible pour automatiser la configuration.
-
-Voici les options disponibles (pour le moment) :
-- **Sudo & update**
-- **Essentials** (curl, tree, htop, git)
-- **Starship**
-
-
-```bash
-curl -sSL "https://raw.githubusercontent.com/ProtoxViler/HomeServerConfig/main/OsConfig/AutoConfig.sh" -o AutoConfig.sh && chmod +x AutoConfig.sh && ./AutoConfig.sh && rm ./AutoConfig.sh
-```
+à realiser
