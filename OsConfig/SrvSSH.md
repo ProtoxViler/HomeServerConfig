@@ -32,7 +32,7 @@ _Optionnel mais recommandé : ajouter une passphrase_
 2. Copier la clé publique :
 
 ```bash
-type C:\Users\<username>\.ssh\id_ed25519.pub
+type ~\.ssh\id_ed25519.pub
 ```
 
 ### Sur le serveur
@@ -90,4 +90,12 @@ Redémarrer le service SSH :
 
 ```bash
 sudo systemctl restart sshd
+```
+
+## 5. Facilité (Perd en sécu sur le poste)
+
+Sur la machine client, réaliser la commande ci-dessous pour garder en mémoire la passphrase
+
+```bash
+ssh-add ~/.ssh/id_ed25519
 ```

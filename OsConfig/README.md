@@ -43,7 +43,7 @@ Nécessite surement un reboot sur VM, ou une reconnexion du compte.
 sudo apt update && sudo apt upgrade -y
 ```
 
-Voir [plus bas](#fichier-automatique-shell) pour que tout soit automatisé.
+Voir [plus bas](#installation-automatique) pour que tout soit automatisé.
 
 ## Autre config bonus
 
@@ -104,7 +104,7 @@ A ajouter dans le .bashrc ou .zshrc
 alias ipa='ip -br -c -4 a'
 ```
 
-## Fichier automatique shell (WIP)
+## Installation Automatique
 
 ### avec Autoconfig (WIP)
 
@@ -121,13 +121,13 @@ sudo ./AutoConfig.sh
 rm ./AutoConfig.sh
 ```
 
-### Sans Autoconfig
+### Sans Autoconfig (Seulement les utilitaires)
 
 Installation des paquets
 
 ```bash
 sudo apt update && sudo apt upgrade
-sudo apt install fastfetch curl tree htop openssh-server xrdp samba -y
+sudo apt install fastfetch curl tree htop -y
 sudo curl -sS https://starship.rs/install.sh | sh
 echo 'eval "$(starship init bash)"' >> ~/.bashrc
 ```
