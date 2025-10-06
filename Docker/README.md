@@ -16,11 +16,28 @@ sudo apt-get install docker.io -y
 
 Installe le plugin, ne pas utiliser la version standalone (`docker-compose` obsolète).
 
+1. Ajoute la source dépot de docker (Non disponible dans les dépôts de debian par défaut)
+
 ```bash
-DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
-mkdir -p $DOCKER_CONFIG/cli-plugins
-curl -SL https://github.com/docker/compose/releases/download/v2.40.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
-chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+2. Installe les paquets de docker
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 Vérifier l'installation :
@@ -46,6 +63,7 @@ sudo docker run -d -p 9000:9000 -p 9443:9443 --name portainer --restart=always -
 5. Sélectionner "Local" puis cliquer sur "Ajouter un environnement"
 
 ## 3. Utilisation de Portainer
+
 ### Déploiement d'une stack
 
 1. Aller dans "Stacks" > "Ajouter une stack"
@@ -63,7 +81,6 @@ sudo docker run -d -p 9000:9000 -p 9443:9443 --name portainer --restart=always -
 Dans votre stacks, il est possible d'avoir des mots de passe qui sont stocké en clair dans le fichier `docker-compose.yml`. Pour éviter cela, il est possible d'utiliser des variables d'environnement.
 
 Pour cela, il faut créer un fichier `.env` que vous stockerez dans un dossier qui vous est propre (/home/$USER/DockerPassword/ par exemple).
-
 
 ## A noter
 

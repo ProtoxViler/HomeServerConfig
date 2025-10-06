@@ -53,6 +53,12 @@ Voir [plus bas](#fichier-automatique-shell) pour que tout soit automatisé.
 sudo apt install curl -y
 ```
 
+### Git & GitHub
+
+```bash
+sudo apt install git gh -y
+```
+
 ### Tree
 
 ```bash
@@ -121,8 +127,9 @@ Installation des paquets
 
 ```bash
 sudo apt update && sudo apt upgrade
-sudo apt install curl tree htop openssh-server xrdp samba -y
+sudo apt install fastfetch curl tree htop openssh-server xrdp samba -y
 sudo curl -sS https://starship.rs/install.sh | sh
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
 ```
 
 Configuration de starship
@@ -130,13 +137,11 @@ Configuration de starship
 #### Config Perso
 
 ```bash
-echo 'eval "$(starship init bash)"' >> ~/.bashrc
 curl https://raw.githubusercontent.com/ProtoxViler/HomeServerConfig/refs/heads/main/OsConfig/Starship/starship_perso.toml -o ~/.config/starship.toml
 ```
 
 #### Config Server
 
 ```bash
-echo 'eval "$(starship init bash)"' >> ~/.bashrc
 curl https://raw.githubusercontent.com/ProtoxViler/HomeServerConfig/refs/heads/main/OsConfig/Starship/starship_server.toml -o ~/.config/starship.toml
 ```
