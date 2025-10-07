@@ -20,3 +20,12 @@ De plus ce stack n'a jamais été réellement abouti et n'est jamais rentré en 
 - **Radarr** - _Gestionnaire de films_
 - **Sonarr** - _Gestionnaire de séries_
 - **Flaresolverr** - _Bypass Cloudflare pour Jackett_
+
+## Port mapping (Sortant)
+
+- **Jellyfin** : 8096
+- **Jackett** : 9117
+- **Prowlarr** : 9696
+- **Radarr** : 7878
+- **Sonarr** : 8989
+- **Flaresolverr** : 8191
