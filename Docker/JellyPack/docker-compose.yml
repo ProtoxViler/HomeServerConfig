@@ -1,0 +1,105 @@
+services:
+  jellyfin:
+    container_name : Jellyfin
+    image: jellyfin/jellyfin
+    ports :
+      - 8096:8096
+    volumes:
+      - jelly_cache:/cache
+      - jelly_cfg:/config
+      - /srv/jelly/series:/media/tvshows
+      - /srv/jelly/films:/media/films
+    restart: unless-stopped
+    networks:
+      - jellypack_network
+
+  jackett:
+    container_name: jackett
+    image: linuxserver/jackett:latest
+    ports:
+      - 9117:9117
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - AUTO_UPDATE=true #optional
+    volumes:
+      - jackett_cfg:/config
+      - /path/to/blackhole:/downloads
+    networks:
+      - jellypack_network
+    restart: unless-stopped
+    
+
+  prowlarr:
+    container_name: prowlarr
+    image: hotio/prowlarr:release
+    ports:
+      - "9696:9696"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Europe/Paris
+    volumes:
+      - prowlarr_cfg:/config
+    networks:
+      - jellypack_network
+    restart: unless-stopped
+
+  radarr:
+    container_name: radarr
+    image: lscr.io/linuxserver/radarr:latest
+    ports:
+      - 7878:7878
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes :
+      - radarr_cfg:/config
+      - /srv/jelly/films:/movies #optional
+      - /srv/Qbit:/downloads #optional
+    networks:
+      - jellypack_network
+    restart: unless-stopped
+        
+  sonarr:
+    container_name: sonarr
+    image: lscr.io/linuxserver/sonarr:latest
+    ports:
+      - 8989:8989
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes :
+      - sonarr_cfg:/config
+      - /srv/jelly/series:/tv #optional
+      - /srv/Qbit:/downloads #optional
+    networks:
+      - jellypack_network
+    restart: unless-stopped
+
+  flaresolverr:
+    container_name: flaresolverr
+    image: 21hsmw/flaresolverr:nodriver
+    ports:
+      - 8191:8191
+    environment:
+      - LOG_LEVEL=info
+      - TZ=Europe/Paris
+    networks:
+      - jellypack_network
+    restart: unless-stopped 
+
+volumes:
+  jelly_cache:
+  jelly_cfg:
+  jackett_cfg:
+  radarr_cfg:
+  sonarr_cfg:
+  prowlarr_cfg:
+
+networks:
+  jellypack_network:
