@@ -13,7 +13,7 @@ services:
     volumes:
       - n8n_data:/home/node/.n8n
     networks:
-      - portfolio_network
+      - portfolio_portfolio_network
 
 volumes:
   n8n_data:
