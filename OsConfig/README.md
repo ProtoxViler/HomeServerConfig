@@ -89,8 +89,10 @@ Ajouter le preset dans le chemin ci-dessous (suivant l'OS) :
 - Windows : `%USERPROFILE%\.config\starship.toml`
 
 Preset perso : [lien](https://github.com/ProtoxViler/HomeServerConfig/blob/main/OsConfig/starship_perso.toml) (à rename starship.toml)
+
 Preset serveur: [lien](https://github.com/ProtoxViler/HomeServerConfig/blob/main/OsConfig/starship_server.toml) (à rename starship.toml)
-List de preset : [https://starship.rs/presets/](https://starship.rs/presets/)
+
+Liste de preset : [https://starship.rs/presets/](https://starship.rs/presets/)
 
 Font : [Nerd Font](https://www.nerdfonts.com/) ([Cascadia Code](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip) recommandé)
 
