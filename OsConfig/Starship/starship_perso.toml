@@ -1,3 +1,6 @@
+# Inspired by Tokyo Night by the theme on VSCode
+# https://github.com/tokyo-night/tokyo-night-vscode-theme
+
 format = """
 $username\
 [](bg:#a3aed2 fg:#b4bddb)\

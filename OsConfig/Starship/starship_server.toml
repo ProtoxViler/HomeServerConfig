@@ -1,5 +1,6 @@
 # Inspired by TaouMou
 # github.com/TaouMou/starship-presets
+
 format = """
 [╭─](fg:arrow)\
 $os$username\

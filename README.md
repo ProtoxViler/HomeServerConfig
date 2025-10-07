@@ -15,15 +15,7 @@ Configuration et documentation centralisée pour le Home Server (Firebat) — ge
 | Stockage  | 512 Go SSD + 1 slot 2.5" libre                                                                                                            |
 | Réseau    | Wi‑Fi5 / RJ45 (1 Gbps)                                                                                                                    |
 
-## Raccourci rapide
-
-### 1. Mettre à jour le système :
-
-```bash
-sudo apt update && sudo apt upgrade -y
-```
-
-### 2. Consulter les guides détaillés :
+## Consulter les guides détaillés
 
 _Grand point cliquable pour voir comment installer/configurer._
 

@@ -13,7 +13,7 @@
 
 ## ⚠️ Avant de faire tout manipulation
 
-### Ajouter l'utilisateur au groupe sudo
+### 1. Ajouter l'utilisateur au groupe sudo
 
 1. Ouvrir un terminal
 2. Se connecter en tant que root :
@@ -37,7 +37,7 @@ groups <username>
 
 Nécessite surement un reboot sur VM, ou une reconnexion du compte.
 
-### Vérifier les mises à jour
+### 2. Vérifier les mises à jour
 
 ```bash
 sudo apt update && sudo apt upgrade -y
@@ -131,7 +131,7 @@ Installation des paquets
 sudo apt update && sudo apt upgrade
 sudo apt install fastfetch curl tree htop -y
 sudo curl -sS https://starship.rs/install.sh | sh
-echo 'eval "$(starship init bash)"' >> ~/.bashrc
+echo -e '\n\n# AUTOCONFIG\n## Alias\nalias ipa="ip -br -c -4 a"\n\n## Starhsip\neval "$(starship init bash)"\n\n## Fastfetch\necho\nfastfetch' >> ~/.bashrc
 ```
 
 Configuration de starship
