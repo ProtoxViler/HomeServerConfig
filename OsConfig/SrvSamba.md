@@ -18,6 +18,9 @@ sudo systemctl enable smbd
 ### Préparation du dossier
 
 ```bash
+# Création du groupe
+sudo groupadd partage
+
 # Création du répertoire
 sudo mkdir -p /srv/partage
 
@@ -29,9 +32,6 @@ sudo chown root:partage /srv/partage
 ### Configuration des utilisateurs
 
 ```bash
-# Création du groupe
-sudo groupadd partage
-
 # Ajout d'un utilisateur au groupe
 sudo usermod -aG partage <nom_utilisateur>
 
