@@ -3,16 +3,16 @@
 ## 1. Vérification de l'installation SSH
 
 ```bash
-systemctl status sshd
+sudo systemctl status sshd
 ```
 
 Si le service n'est pas actif, l'installer et l'activer :
 
 ```bash
 sudo apt install -y openssh-server
-sudo systemctl enable sshd
-sudo systemctl start sshd
-sudo systemctl status sshd
+sudo systemctl enable ssh
+sudo systemctl start ssh
+sudo systemctl status ssh
 ```
 
 ## 2. Configuration de l'authentification par clé SSH
