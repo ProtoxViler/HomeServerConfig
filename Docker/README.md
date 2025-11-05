@@ -40,6 +40,13 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 ```
 
+3. Lancement de docker si besoin
+
+```bash
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
 Vérifier l'installation :
 
 ```bash
