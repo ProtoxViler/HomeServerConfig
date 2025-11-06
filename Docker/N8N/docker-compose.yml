@@ -12,8 +12,6 @@ services:
       N8N_RUNNERS_ENABLED: "true"
     volumes:
       - n8n_data:/home/node/.n8n
-    networks:
-      - portfolio_portfolio_network
 
 volumes:
   n8n_data:
