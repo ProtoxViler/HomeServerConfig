@@ -1,0 +1,8 @@
+# Ignorer tout
+*
+# Ne pas ignorer les dossiers (permet d'annuler l'ignore pour des fichiers spécifiques)
+!*/
+# Garder le .gitignore lui-même
+!.gitignore
+# Ne PAS mettre roadmap.md dans l'ignore (le garder suivi)
+!/roadmap.md
