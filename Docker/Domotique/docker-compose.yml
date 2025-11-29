@@ -1,7 +1,6 @@
 services:
   homeassistant:
     image: homeassistant/home-assistant:stable
-    container_name: HomeAssistant
     environment:
       TZ: "Europe/Paris"
     ports:
@@ -12,9 +11,8 @@ services:
     networks:
       - domotique_network
 
-  mosquitto:
+  mqtt-broker:
     image: eclipse-mosquitto
-    container_name: MQTT
     restart: unless-stopped
     volumes:
       - MQTTconfig:/mosquitto/config
