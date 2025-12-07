@@ -1,5 +1,5 @@
-# Ignorer tout
-*
+# Ne pas tout ignorer
+!*
 # Ne pas ignorer les dossiers (permet d'annuler l'ignore pour des fichiers spécifiques)
 !*/
 # Garder le .gitignore lui-même
