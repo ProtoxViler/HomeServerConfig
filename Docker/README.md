@@ -9,7 +9,7 @@ Faire la configuration de base de l'OS : [OsConfig](../OsConfig/README.md)
 ### Docker
 
 ```bash
-sudo apt-get install docker.io -y
+sudo apt install docker.io -y
 ```
 
 ### Docker Compose
@@ -20,8 +20,8 @@ Installe le plugin, ne pas utiliser la version standalone (`docker-compose` obso
 
 ```bash
 # Add Docker's official GPG key:
-sudo apt-get update
-sudo apt-get install ca-certificates curl
+sudo apt update
+sudo apt install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -31,13 +31,13 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
+sudo apt update
 ```
 
 2. Installe les paquets de docker
 
 ```bash
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 ```
 
 3. Lancement de docker si besoin
