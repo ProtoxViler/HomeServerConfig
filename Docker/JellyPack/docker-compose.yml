@@ -33,7 +33,7 @@ services:
 
   prowlarr:
     container_name: prowlarr
-    image: hotio/prowlarr:release
+    image: ghcr.io/hotio/prowlarr:release
     ports:
       - "9696:9696"
     environment:
