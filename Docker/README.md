@@ -75,9 +75,19 @@ docker --version
 docker compose version
 ```
 
+<<<<<<< HEAD
 ---
 
 ## 2. Installation de Portainer (optionnel)
+=======
+## 2. Ajout de l'utilisateur au groupe docker (optionnel)
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+## 3. Installation de Portainer (optionnel)
+>>>>>>> 6e0a85b (Renommage de la section 2 et ajout de la commande pour ajouter l'utilisateur au groupe docker)
 
 ```bash
 sudo docker volume create portainer_data
