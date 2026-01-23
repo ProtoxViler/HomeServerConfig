@@ -55,7 +55,7 @@ _Grand point cliquable pour voir comment installer/configurer._
 ## Licence & contact
 
 - **Projet personnel** — Pas de licence explicite
-- **Contact :** contact@devallek.fr
+- **Contact :** <contact@devallek.fr>
 - **mention honorable :** le_renard_12 (Discord)
 
 ## Ressources

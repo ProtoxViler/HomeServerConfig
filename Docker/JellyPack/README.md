@@ -12,7 +12,7 @@ De plus ce stack n'a jamais été réellement abouti et n'est jamais rentré en 
 
 - Qbittorrent (ou autre) pour le téléchargement
 
-## Contient les services suivants :
+## Contient les services suivants
 
 - **Jellyfin** - _Médiathèque_
 - **Jackett** - _Moteur de recherche pour Radarr/Sonarr_
@@ -29,3 +29,12 @@ De plus ce stack n'a jamais été réellement abouti et n'est jamais rentré en 
 - **Radarr** : 7878
 - **Sonarr** : 8989
 - **Flaresolverr** : 8191
+
+## Volumes
+
+- **Jellyfin** : `/config`, `/media`
+- **Jackett** : `/config`
+- **Prowlarr** : `/config`
+- **Radarr** : `/config`, `/movies`
+- **Sonarr** : `/config`, `/tv`
+- **Flaresolverr** : `/config`  

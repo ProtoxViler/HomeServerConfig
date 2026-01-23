@@ -7,7 +7,7 @@ services:
     volumes:
       - jelly_cache:/cache
       - jelly_cfg:/config
-      - /srv/jelly/series:/media/tvshows
+      - /srv/jelly/series:/media/series
       - /srv/jelly/films:/media/films
     restart: unless-stopped
     networks:
@@ -25,7 +25,7 @@ services:
       - AUTO_UPDATE=true #optional
     volumes:
       - jackett_cfg:/config
-      - /path/to/blackhole:/downloads
+      - /srv/Qbit:/downloads
     networks:
       - jellypack_network
     restart: unless-stopped
