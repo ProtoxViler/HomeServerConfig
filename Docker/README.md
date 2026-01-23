@@ -75,19 +75,15 @@ docker --version
 docker compose version
 ```
 
-<<<<<<< HEAD
 ---
 
 ## 2. Installation de Portainer (optionnel)
-=======
-## 2. Ajout de l'utilisateur au groupe docker (optionnel)
 
 ```bash
 sudo usermod -aG docker $USER
 ```
 
 ## 3. Installation de Portainer (optionnel)
->>>>>>> 6e0a85b (Renommage de la section 2 et ajout de la commande pour ajouter l'utilisateur au groupe docker)
 
 ```bash
 sudo docker volume create portainer_data
@@ -95,6 +91,7 @@ sudo docker run -d   -p 9000:9000   -p 9443:9443   --name portainer   --restart=
 ```
 
 **ATTENTION** :  
+
 - Le port **9000** est en **HTTP**
 - Le port **9443** est en **HTTPS**
 
